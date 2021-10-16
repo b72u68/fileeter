@@ -17,9 +17,9 @@
     }
   },
   "icons": {
-    "16": "/images/icon.png",
-    "32": "/images/icon.png",
-    "48": "/images/icon.png",
-    "128": "/images/icon.png"
+    "16": "/images/icon_no_bg.png",
+    "32": "/images/icon_no_bg.png",
+    "48": "/images/icon_no_bg.png",
+    "128": "/images/icon_no_bg.png"
   }
 }

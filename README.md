@@ -1,7 +1,7 @@
 # Fileeter
 
 > Have you ever been tired of Leetcode company problem page not having filter
-> by difficulties and having to scroll to find the problems? Well say no more.
+> by difficulties and having to scroll to find the roblems? Well say no more.
 
 <p align="center" style="width: 200px; height: auto;">
   <img src="/images/icon.png" />
