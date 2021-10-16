@@ -4,7 +4,7 @@
 > by difficulties and having to scroll to find the roblems? Well say no more.
 
 <p align="center">
-  <img src="/images/icon.png" width="30%" height="auto" />
+  <img src="/images/icon_no_bg.png" width="30%" height="auto" />
 </p>
 
 ## Overview
