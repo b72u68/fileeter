@@ -3,8 +3,8 @@
 > Have you ever been tired of Leetcode company problem page not having filter
 > by difficulties and having to scroll to find the roblems? Well say no more.
 
-<p align="center" style="width: 200px; height: auto;">
-  <img src="/images/icon.png" />
+<p align="center">
+  <img src="/images/icon.png" width="30%" height="auto" />
 </p>
 
 ## Overview
