@@ -3,7 +3,7 @@
 > Have you ever been tired of Leetcode company problem page not having filter
 > by difficulties and having to scroll to find the problems? Well say no more.
 
-<p align="center">
+<p align="center" style="width: 200px; height: auto;">
   <img src="/images/icon.png" />
 </p>
 
@@ -42,5 +42,5 @@ Any suggestions and help would be appreciate.
 ## TODO
 
 Might need to add restriction that the extension can only be active on
-[https://leetcode.com/company](https://leetcode/company/*) or it will go insane
+[https://leetcode.com/company/\*](https://leetcode/company) or it will go insane
 on other websites.
