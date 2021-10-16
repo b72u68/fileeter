@@ -1,78 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      * {
-        padding: 5px;
-        margin: 0px;
-      }
-
-      body {
-        width: 200px;
-        height: auto;
-      }
-
-      h1 {
-        border-bottom: 1px;
-      }
-      p {
-        color: grey;
-      }
-
-      #applyBtn {
-        width: 100%;
-        background: #4688f1;
-        font-weight: bold;
-        color: white;
-        border: 0px solid;
-      }
-
-      #clearBtn {
-        width: 100%;
-        font-weight: bold;
-        border: 1px solid;
-      }
-
-      form {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-      }
-
-      .difficulty-option {
-        color: white;
-        font-weight: bold;
-      }
-
-      .easy {
-        background: #5db85d;
-      }
-
-      .medium {
-        background: #f0ad4e;
-      }
-
-      .hard {
-        background: #d9524e;
-      }
-    </style>
+    <link rel="stylesheet" href="/css/popup.css" />
   </head>
   <body>
-    <h1>FILEETER</h1>
-    <p>
+    <div class="header">
+      <h1 id="title" >FILEETER</h1>
+      <button id="themeBtn" class="darkBtn">Dark</button>
+    </div>
+    <p id="instruction">
       Choose difficulty level(s) and click "Apply" to apply the filter to the
       current Leetcode company problem page.
     </p>
     <form>
       <div class="difficulty-option easy">
+        <div class="overlay" id="easyOverlay"></div>
         <input id="easyOption" type="checkbox" />
         <label for="easyOption">Easy</label>
       </div>
-      <div class="difficulty-option medium">
+      <div class="difficulty-option medium" id="mediumOptionBlock">
+        <div class="overlay" id="mediumOverlay"></div>
         <input id="mediumOption" type="checkbox" />
         <label for="mediumOption">Medium</label>
       </div>
-      <div class="difficulty-option hard">
+      <div class="difficulty-option hard" id="hardOptionBlock">
+        <div class="overlay" id="hardOverlay"></div>
         <input id="hardOption" type="checkbox" />
         <label for="hardOption">Hard</label>
       </div>

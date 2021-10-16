@@ -1,0 +1,86 @@
+* {
+  padding: 5px;
+  margin: 0px;
+}
+
+body {
+  width: 200px;
+  height: auto;
+}
+
+#instruction {
+  color: grey;
+}
+
+.header {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#themeBtn {
+  width: auto;
+  height: auto;
+}
+
+.darkBtn {
+  color: white;
+  background-color: #282b2d;
+}
+
+.lightBtn {
+  color: #282b2d;
+  background-color: white;
+}
+
+#applyBtn {
+  width: 100%;
+  background: #4688f1;
+  font-weight: bold;
+  color: white;
+  border: 0px solid;
+}
+
+#clearBtn {
+  width: 100%;
+  background: lightgrey;
+  font-weight: bold;
+  border: 0px solid;
+}
+
+form {
+  padding: 10px 0px 10px 0px;
+  margin: 0;
+  width: 100%;
+}
+
+.difficulty-option {
+  color: white;
+  font-weight: bold;
+  position: relative;
+}
+
+.easy {
+  background: #5db85d;
+}
+
+.medium {
+  background: #f0ad4e;
+}
+
+.hard {
+  background: #d9524e;
+}
+
+.overlay {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
