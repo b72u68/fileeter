@@ -69,14 +69,17 @@ clearBtn.addEventListener("click", async () => {
 
 easyOverlay.addEventListener("click", () => {
   easyOption.checked = !easyOption.checked;
+  chrome.storage.sync.set({ easy: easyOption.checked });
 });
 
 mediumOverlay.addEventListener("click", () => {
   mediumOption.checked = !mediumOption.checked;
+  chrome.storage.sync.set({ medium: mediumOption.checked });
 });
 
 hardOverlay.addEventListener("click", () => {
   hardOption.checked = !hardOption.checked;
+  chrome.storage.sync.set({ hard: hardOption.checked });
 });
 
 function clearCheckboxAndStorage() {
