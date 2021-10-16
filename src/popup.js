@@ -1,3 +1,5 @@
+const validUrl = "https://leetcode.com/company/";
+
 let title = document.getElementById("title");
 
 let applyBtn = document.getElementById("applyBtn");
@@ -44,10 +46,12 @@ applyBtn.addEventListener("click", async () => {
   chrome.storage.sync.set({ medium: mediumOption.checked });
   chrome.storage.sync.set({ hard: hardOption.checked });
 
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: applyFilters,
-  });
+  if (tab.url.match(`^${validUrl}`)) {
+    chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ["/src/content-apply-filter.js"],
+    });
+  }
 });
 
 clearBtn.addEventListener("click", async () => {
@@ -55,10 +59,12 @@ clearBtn.addEventListener("click", async () => {
 
   clearCheckboxAndStorage();
 
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: clearFilters,
-  });
+  if (tab.url.match(`^${validUrl}`)) {
+    chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ["/src/content-clear-filter.js"],
+    });
+  }
 });
 
 easyOverlay.addEventListener("click", () => {
@@ -73,46 +79,6 @@ hardOverlay.addEventListener("click", () => {
   hardOption.checked = !hardOption.checked;
 });
 
-function applyFilters() {
-  const problemElements = document.querySelectorAll("tr");
-  for (let problemElement of problemElements) {
-    if (problemElement.innerText.indexOf("Easy") !== -1) {
-      chrome.storage.sync.get("easy", ({ easy }) => {
-        if (!easy) {
-          problemElement.hidden = true;
-        } else {
-          problemElement.hidden = false;
-        }
-      });
-    }
-    if (problemElement.innerText.indexOf("Medium") !== -1) {
-      chrome.storage.sync.get("medium", ({ medium }) => {
-        if (!medium) {
-          problemElement.hidden = true;
-        } else {
-          problemElement.hidden = false;
-        }
-      });
-    }
-    if (problemElement.innerText.indexOf("Hard") !== -1) {
-      chrome.storage.sync.get("hard", ({ hard }) => {
-        if (!hard) {
-          problemElement.hidden = true;
-        } else {
-          problemElement.hidden = false;
-        }
-      });
-    }
-  }
-}
-
-function clearFilters() {
-  const problemElements = document.querySelectorAll("tr");
-  for (let problemElement of problemElements) {
-    problemElement.hidden = false;
-  }
-}
-
 function clearCheckboxAndStorage() {
   chrome.storage.sync.set({ easy: true });
   chrome.storage.sync.set({ medium: true });
@@ -123,7 +89,7 @@ function clearCheckboxAndStorage() {
   hardOption.checked = true;
 }
 
-function setToTheme(theme) {
+function setToTheme() {
   chrome.storage.sync.get("theme", ({ theme }) => {
     switch (theme) {
       case "light":
