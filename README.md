@@ -41,6 +41,6 @@ Any suggestions and help would be appreciate.
 
 ## TODO
 
-Might need to add restriction that the extension can only be active on
+~~Might need to add restriction that the extension can only be active on
 [https://leetcode.com/company/\*](https://leetcode/company) or it will go insane
-on other websites.
+on other websites.~~
