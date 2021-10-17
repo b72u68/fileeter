@@ -1,5 +1,3 @@
-const validUrl = "https://leetcode.com/company/";
-
 let title = document.getElementById("title");
 
 let applyBtn = document.getElementById("applyBtn");
@@ -46,12 +44,7 @@ applyBtn.addEventListener("click", async () => {
   chrome.storage.sync.set({ medium: mediumOption.checked });
   chrome.storage.sync.set({ hard: hardOption.checked });
 
-  if (tab.url.match(`^${validUrl}`)) {
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      files: ["/src/content-apply-filter.js"],
-    });
-  }
+  chrome.tabs.sendMessage(tab.id, { action: "applyFilter" });
 });
 
 clearBtn.addEventListener("click", async () => {
@@ -59,12 +52,7 @@ clearBtn.addEventListener("click", async () => {
 
   clearCheckboxAndStorage();
 
-  if (tab.url.match(`^${validUrl}`)) {
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      files: ["/src/content-clear-filter.js"],
-    });
-  }
+  chrome.tabs.sendMessage(tab.id, { action: "clearFilter" });
 });
 
 easyOverlay.addEventListener("click", () => {

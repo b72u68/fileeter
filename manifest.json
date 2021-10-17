@@ -6,7 +6,13 @@
   "background": {
     "service_worker": "/src/background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "content_scripts": [
+      {
+          "matches": ["*://leetcode.com/company/*"],
+          "js": ["/src/content.js"]
+      }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
