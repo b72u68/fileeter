@@ -1,31 +1,31 @@
 {
   "name": "Fileeter",
   "description": "Provide difficulty level(s) filter for Leetcode company problem page. Happy leetcoding!",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 3,
   "background": {
-    "service_worker": "/src/background.js"
+    "service_worker": "src/background.js"
   },
   "permissions": ["storage", "activeTab", "scripting", "tabs"],
   "content_scripts": [
       {
           "matches": ["*://leetcode.com/company/*"],
-          "js": ["/src/content.js"]
+          "js": ["src/content.js"]
       }
   ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "/images/icon.png",
-      "32": "/images/icon.png",
-      "48": "/images/icon.png",
-      "128": "/images/icon.png"
+      "16": "images/icon.png",
+      "32": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
     }
   },
   "icons": {
-    "16": "/images/icon_no_bg.png",
-    "32": "/images/icon_no_bg.png",
-    "48": "/images/icon_no_bg.png",
-    "128": "/images/icon_no_bg.png"
+    "16": "images/icon_no_bg.png",
+    "32": "images/icon_no_bg.png",
+    "48": "images/icon_no_bg.png",
+    "128": "images/icon_no_bg.png"
   }
 }
