@@ -1,6 +1,6 @@
 # Fileeter
 
-> Have you ever been tired of Leetcode company problem page not having filter
+> Have you ever been tired of some Leetcode problem pages not having filter
 > by difficulties and having to scroll to find the roblems? Well say no more.
 
 <p align="center">
@@ -9,8 +9,8 @@
 
 ## Overview
 
-Fileeter provides filter problems by different difficulty levels on Leetcode
-company problem page.
+Fileeter provides filter problems by different difficulty levels on some Leetcode
+problem pages that do not have filter.
 
 ## Installation
 

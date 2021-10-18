@@ -9,7 +9,7 @@
   "permissions": ["storage", "activeTab", "scripting", "tabs"],
   "content_scripts": [
       {
-          "matches": ["*://leetcode.com/company/*"],
+          "matches": ["*://leetcode.com/company/*", "*://leetcode.com/tag/*"],
           "js": ["src/content.js"]
       }
   ],
