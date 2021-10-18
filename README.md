@@ -41,6 +41,8 @@ Any suggestions and help would be appreciate.
 
 ## TODO
 
-~~Might need to add restriction that the extension can only be active on
-[https://leetcode.com/company/\*](https://leetcode/company) or it will go insane
-on other websites.~~
+- [x] ~~Might need to add restriction that the extension can only be active on
+      [https://leetcode.com/company/\*](https://leetcode/company) or it will go insane
+      on other websites.~~
+
+- [ ] Add filter by tags feature.
