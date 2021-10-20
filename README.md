@@ -32,6 +32,23 @@ your local machine.
 
 And done, you have installed this extension to your browser. Enjoy!
 
+## Features
+
+### Theme
+
+There are two available themes: Light and Dark. You can toggle them by using the
+button on the top right.
+
+### Filter by Difficulties
+
+You can choose the difficulty options "Easy", "Medium", and "Hard" and click "Apply"
+to get a list of Leetcode problems with the chosen difficulty level(s).
+
+### Filter By Tag
+
+You can choose one problem tag from the dropdown menu and click "Apply" to get
+a list of Leetcode problems with the chosen tag.
+
 ## Development and Contribution
 
 If you have new idea to improve this extension, you can either create new a "Issues"
@@ -45,4 +62,7 @@ Any suggestions and help would be appreciate.
       [https://leetcode.com/company/\*](https://leetcode/company) or it will go insane
       on other websites.~~
 
-- [ ] ~~Add filter by one tag feature.~~ Might need to add filter by multiple tags.
+- [x] ~~Add filter by one tag feature.~~
+
+- [ ] Add filter by multiple tags and improving popup interface to suport this
+      feature.

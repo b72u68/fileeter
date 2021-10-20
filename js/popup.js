@@ -72,8 +72,6 @@ const tagsList = [
   "Biconnected Component",
 ];
 
-let title = document.getElementById("title");
-
 let applyBtn = document.getElementById("applyBtn");
 let clearBtn = document.getElementById("clearBtn");
 let themeBtn = document.getElementById("themeBtn");
