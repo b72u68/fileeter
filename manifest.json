@@ -1,7 +1,7 @@
 {
   "name": "Fileeter",
   "description": "Provide filter for Leetcode problem page without a filter. Happy leetcoding!",
-  "version": "1.5",
+  "version": "1.6",
   "manifest_version": 3,
   "background": {
     "service_worker": "js/background.js"
