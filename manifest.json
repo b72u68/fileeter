@@ -1,6 +1,6 @@
 {
   "name": "Fileeter",
-  "description": "Provide difficulty level(s) filter for Leetcode problem page without a filter. Happy leetcoding!",
+  "description": "Provide filter for Leetcode problem page without a filter. Happy leetcoding!",
   "version": "1.5",
   "manifest_version": 3,
   "background": {
