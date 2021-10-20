@@ -2,6 +2,7 @@ chrome.runtime.onInstalled.addListener(async () => {
   chrome.storage.sync.set({ easy: true });
   chrome.storage.sync.set({ medium: true });
   chrome.storage.sync.set({ hard: true });
+  chrome.storage.sync.set({ tags: "" });
 
   chrome.storage.sync.get("theme", ({ theme }) => {
     if (!theme) {

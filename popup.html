@@ -3,15 +3,13 @@
   <head>
     <link rel="stylesheet" href="/css/popup.css" />
   </head>
-  <body>
+  <body class="light">
     <div class="header">
       <h1 id="title">FILEETER</h1>
-      <button id="themeBtn" class="darkBtn">Dark</button>
+      <button id="themeBtn" class="dark">Dark</button>
     </div>
-    <p id="instruction">
-      Choose difficulty level(s) and click "Apply" to apply the filter to the
-      current Leetcode company problem page.
-    </p>
+    <h2 class="section">Difficulty</h2>
+    <p class="instruction">Choose difficulty level(s).</p>
     <form>
       <div class="difficulty-option easy">
         <div class="overlay" id="easyOverlay"></div>
@@ -28,6 +26,11 @@
         <input id="hardOption" type="checkbox" />
         <label for="hardOption">Hard</label>
       </div>
+    </form>
+    <h2 class="section">Tag</h2>
+    <p class="instruction">Choose a problem tag.</p>
+    <form>
+      <select id="tagsInput"></select>
     </form>
     <input id="applyBtn" type="submit" value="Apply" />
     <input id="clearBtn" type="submit" value="Clear" />
