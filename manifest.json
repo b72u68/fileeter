@@ -4,28 +4,28 @@
   "version": "1.5",
   "manifest_version": 3,
   "background": {
-    "service_worker": "src/background.js"
+    "service_worker": "js/background.js"
   },
   "permissions": ["storage", "activeTab", "scripting", "tabs"],
   "content_scripts": [
       {
           "matches": ["*://leetcode.com/company/*", "*://leetcode.com/tag/*"],
-          "js": ["src/content.js"]
+          "js": ["js/content.js"]
       }
   ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/icon.png",
-      "32": "images/icon.png",
-      "48": "images/icon.png",
-      "128": "images/icon.png"
+      "16": "img/icon.png",
+      "32": "img/icon.png",
+      "48": "img/icon.png",
+      "128": "img/icon.png"
     }
   },
   "icons": {
-    "16": "images/icon_no_bg.png",
-    "32": "images/icon_no_bg.png",
-    "48": "images/icon_no_bg.png",
-    "128": "images/icon_no_bg.png"
+    "16": "img/icon_no_bg.png",
+    "32": "img/icon_no_bg.png",
+    "48": "img/icon_no_bg.png",
+    "128": "img/icon_no_bg.png"
   }
 }

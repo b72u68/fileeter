@@ -184,6 +184,7 @@ function setToTheme() {
         break;
       default:
         setTheme("light");
+        break;
     }
   });
 }
