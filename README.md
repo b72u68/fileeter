@@ -1,7 +1,7 @@
 # Fileeter
 
-> Have you ever been tired of some Leetcode problem pages not having filter
-> by difficulties and having to scroll to find the roblems? Well say no more.
+> Have you ever been tired of some Leetcode problem pages not having filter 
+> and having to scroll to find the roblems? Well say no more.
 
 <p align="center">
   <img src="/images/icon.png" width="30%" height="auto" />
@@ -9,8 +9,8 @@
 
 ## Overview
 
-Fileeter provides filter problems by different difficulty levels on some Leetcode
-problem pages that do not have filter.
+Fileeter provides filter problems by different difficulty levels and tag on some 
+Leetcode problem pages that do not have filter.
 
 ## Installation
 
@@ -45,4 +45,4 @@ Any suggestions and help would be appreciate.
       [https://leetcode.com/company/\*](https://leetcode/company) or it will go insane
       on other websites.~~
 
-- [ ] Add filter by tags feature.
+- [ ] ~~Add filter by one tag feature.~~ Might need to add filter by multiple tags.
