@@ -16,38 +16,34 @@ chrome.runtime.onMessage.addListener(function (request, sender, _) {
 function applyFilter() {
   const problemElements = document.querySelectorAll("tr");
 
-  chrome.storage.sync.get("tags", ({ tags }) => {
+  chrome.storage.sync.get("filter", ({ filter }) => {
+    const { easy, medium, hard, tags } = filter;
+
     for (let problemElement of problemElements) {
       let problemElementText = problemElement.innerText;
 
       if (problemElementText.indexOf("Easy") !== -1) {
-        chrome.storage.sync.get("easy", ({ easy }) => {
-          if (easy && problemElementText.indexOf(tags) !== -1) {
-            problemElement.hidden = false;
-          } else {
-            problemElement.hidden = true;
-          }
-        });
+        if (easy && problemElementText.indexOf(tags) !== -1) {
+          problemElement.hidden = false;
+        } else {
+          problemElement.hidden = true;
+        }
       }
 
       if (problemElementText.indexOf("Medium") !== -1) {
-        chrome.storage.sync.get("medium", ({ medium }) => {
-          if (medium && problemElementText.indexOf(tags) !== -1) {
-            problemElement.hidden = false;
-          } else {
-            problemElement.hidden = true;
-          }
-        });
+        if (medium && problemElementText.indexOf(tags) !== -1) {
+          problemElement.hidden = false;
+        } else {
+          problemElement.hidden = true;
+        }
       }
 
       if (problemElementText.indexOf("Hard") !== -1) {
-        chrome.storage.sync.get("hard", ({ hard }) => {
-          if (hard && problemElementText.indexOf(tags) !== -1) {
-            problemElement.hidden = false;
-          } else {
-            problemElement.hidden = true;
-          }
-        });
+        if (hard && problemElementText.indexOf(tags) !== -1) {
+          problemElement.hidden = false;
+        } else {
+          problemElement.hidden = true;
+        }
       }
     }
   });

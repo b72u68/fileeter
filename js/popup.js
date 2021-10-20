@@ -89,32 +89,25 @@ let hardOverlay = document.getElementById("hardOverlay");
 let tagsInput = document.getElementById("tagsInput");
 
 window.onload = function () {
+  chrome.storage.sync.get("theme", ({ theme }) => {
+    setToTheme(theme);
+  });
+
+  chrome.storage.sync.get("filter", ({ filter }) => {
+    const { easy, medium, hard, tags } = filter;
+    easyOption.checked = easy;
+    mediumOption.checked = medium;
+    hardOption.checked = hard;
+    tagsInput.value = tags;
+  });
+
   let tagOptionsHTML = '<option value=""></option>';
+
   for (let i = 0; i < tagsList.length; i++) {
     tagOptionsHTML += `<option value="${tagsList[i]}">${tagsList[i]}</option>`;
   }
   tagsInput.innerHTML = tagOptionsHTML;
 };
-
-chrome.storage.sync.get("theme", ({ theme }) => {
-  setToTheme(theme);
-});
-
-chrome.storage.sync.get("easy", ({ easy }) => {
-  easyOption.checked = easy;
-});
-
-chrome.storage.sync.get("medium", ({ medium }) => {
-  mediumOption.checked = medium;
-});
-
-chrome.storage.sync.get("hard", ({ hard }) => {
-  hardOption.checked = hard;
-});
-
-chrome.storage.sync.get("tags", ({ tags }) => {
-  tagsInput.value = tags;
-});
 
 themeBtn.addEventListener("click", async () => {
   if (themeBtn.className === "light") {
@@ -127,11 +120,14 @@ themeBtn.addEventListener("click", async () => {
 
 applyBtn.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  const filterData = {
+    easy: easyOption.checked,
+    medium: mediumOption.checked,
+    hard: hardOption.checked,
+    tags: tagsInput.value,
+  };
 
-  chrome.storage.sync.set({ easy: easyOption.checked });
-  chrome.storage.sync.set({ medium: mediumOption.checked });
-  chrome.storage.sync.set({ hard: hardOption.checked });
-  chrome.storage.sync.set({ tags: tagsInput.value });
+  setChromeFilterData(filterData);
 
   chrome.tabs.sendMessage(tab.id, { action: "applyFilter" });
 });
@@ -146,27 +142,45 @@ clearBtn.addEventListener("click", async () => {
 
 easyOverlay.addEventListener("click", () => {
   easyOption.checked = !easyOption.checked;
-  chrome.storage.sync.set({ easy: easyOption.checked });
+  setChromeFilterData({ easy: easyOption.checked });
 });
 
 mediumOverlay.addEventListener("click", () => {
   mediumOption.checked = !mediumOption.checked;
-  chrome.storage.sync.set({ medium: mediumOption.checked });
+  setChromeFilterData({ medium: mediumOption.checked });
 });
 
 hardOverlay.addEventListener("click", () => {
   hardOption.checked = !hardOption.checked;
-  chrome.storage.sync.set({ hard: hardOption.checked });
+  setChromeFilterData({ hard: hardOption.checked });
 });
 
+function setChromeFilterData(filterData) {
+  const { easy, medium, hard, tags } = filterData;
+  chrome.storage.sync.get("filter", ({ filter }) => {
+    chrome.storage.sync.set({
+      filter: {
+        easy: easy !== null ? easy : filter.easy,
+        medium: medium !== null ? medium : filter.medium,
+        hard: hard !== null ? hard : filter.hard,
+        tags: tags !== null ? tags : filter.tags,
+      },
+    });
+  });
+}
+
 function clearCheckboxAndStorage() {
-  chrome.storage.sync.set({ easy: true });
-  chrome.storage.sync.set({ medium: true });
-  chrome.storage.sync.set({ hard: true });
+  setChromeFilterData({
+    easy: true,
+    medium: true,
+    hard: true,
+    tags: "",
+  });
 
   easyOption.checked = true;
   mediumOption.checked = true;
   hardOption.checked = true;
+  tagsInput.value = "";
 }
 
 function setToTheme() {
