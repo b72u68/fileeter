@@ -13,11 +13,11 @@ chrome.runtime.onInstalled.addListener(async () => {
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
   const tab = await chrome.tabs.get(activeInfo.tabId);
 
-  const urlPattern = /(https|http):\/\/leetcode.com\/(company|tag)\/.*/g;
+  chrome.action.disable(tab.id);
+
+  const urlPattern = /^(https|http):\/\/leetcode.com\/(company|tag)\/.*/g;
 
   if (tab.url && tab.url.match(urlPattern)) {
     chrome.action.enable(tab.id);
-  } else {
-    chrome.action.disable(tab.id);
   }
 });
