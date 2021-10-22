@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/popup.css" />
+    <link rel="stylesheet" href="css/button.css" />
+
+  </head>
+  <body class="light">
+    <center>
+    
+    <div class="header">
+      <h1 id="title">FILEETER  </h1>
+     
+      <button class="btn btn1">Dark</button>
+    </div>
+    <br>
+    <h2 class="section">Difficulty</h2>
+    <p class="instruction">Choose difficulty level(s).</p>
+    <form>
+      <div class="difficulty-option easy">
+        <div class="overlay" id="easyOverlay"></div>
+        <input id="easyOption" type="checkbox" />
+        <label for="easyOption">Easy</label>
+      </div>
+      <div class="difficulty-option medium" id="mediumOptionBlock">
+        <div class="overlay" id="mediumOverlay"></div>
+        <input id="mediumOption" type="checkbox" />
+        <label for="mediumOption">Medium</label>
+      </div>
+      <div class="difficulty-option hard" id="hardOptionBlock">
+        <div class="overlay" id="hardOverlay"></div>
+        <input id="hardOption" type="checkbox" />
+        <label for="hardOption">Hard</label>
+      </div>
+    </form>
+    <h2 class="section">Tag</h2>
+    <p class="instruction">Choose a problem tag.</p>
+    <form>
+      <select id="tagsInput"></select>
+    </form>
+    <!-- <input id="applyBtn" type="submit" value="Apply" />
+    <input id="clearBtn" type="submit" value="Clear" /> -->
+    <div id="holder">
+
+      <div class="button">
+          <p class="btnText">Apply</p>
+          <div class="btnTwo">
+            <p class="btnText2">Enter!</p>
+          </div>
+       </div>
+      
+      <div class="button">
+          <p class="btnText">Clear</p>
+          <div class="btnTwo">
+            <p class="btnText2">X</p>
+          </div>
+       </div>
+      
+      </div>
+    <script src="js/popup.js"></script>
+  </center>
+  </body>
+</html>
