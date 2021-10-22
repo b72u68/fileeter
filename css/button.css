@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:700);
 
-.btn{
+.btnDarkmode{
   border: 1px solid rgb(2, 2, 2);
   background: none;
   padding: 1px 15px;
@@ -11,15 +11,15 @@
   position: relative;
 }
 
-.btn1{
+.btn1Darkmode{
   color: rgb(0, 0, 0);
 }
 
-.btn1:hover{
+.btn1Darkmode:hover{
   color: #fff;
 }
 
-.btn::before{
+.btnDarkmode::before{
   content: "";
   position: absolute;
   left: 0;
@@ -30,12 +30,12 @@
   transition: 0.8s;
 }
 
-.btn1::before{
+.btn1Darkmode::before{
   top: 0;
   border-radius: 0 0 50% 50%;
 }
 
-.btn1:hover::before{
+.btn1Darkmode:hover::before{
   height: 180%;
 }   
 
@@ -52,7 +52,7 @@
   
 
 }
-.button {
+.buttonApyClr {
   background: #3D4C53;
   margin : 20px auto;
   width : 200px;
@@ -64,7 +64,7 @@
   border-radius: 3px;
   box-shadow: 0px 1px 2px rgba(0,0,0,.2);
 }
-.btnTwo {
+.btnSlideApyClr {
   position : relative;
   width : 200px;
   height : 100px;
@@ -74,21 +74,21 @@
   left : -250px;
   transition : .3s;
 }
-.btnText {
+.btnTextApyClr {
   color : white;
   transition : .3s;
 }
-.btnText2 {
+.btnText2ApyClr {
   margin-top : 63px;
   margin-right : -130px;
   color : #FFF;
 }
-.button:hover .btnTwo{ /*When hovering over .button change .btnTwo*/
+.buttonApyClr:hover .btnSlideApyClr{ /*When hovering over .button change .btnTwo*/
   left: -130px;
 }
-.button:hover .btnText{ /*When hovering over .button change .btnText*/
+.buttonApyClr:hover .btnTextApyClr{ /*When hovering over .button change .btnText*/
   margin-left : 65px;
 }
-.button:active { /*Clicked and held*/
+.buttonApyClr:active { /*Clicked and held*/
   box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
 }
