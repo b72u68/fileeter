@@ -54,7 +54,7 @@ h2 {
   height: auto;
 }
 
-#applyBtn {
+/* #applyBtn {
   width: 100%;
   background: #4688f1;
   font-weight: bold;
@@ -67,7 +67,7 @@ h2 {
   background: lightgrey;
   font-weight: bold;
   border: 0px solid;
-}
+} */
 
 form {
   padding: 10px 0px 10px 0px;
