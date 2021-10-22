@@ -1,15 +1,15 @@
+<p align="center">
+  <img src="img/icon.png" width="15%" height="auto" />
+</p>
+
 # Fileeter
 
-> Have you ever been tired of some Leetcode problem pages not having filter
-> and having to scroll to find the roblems? Well say no more.
-
-<p align="center">
-  <img src="img/icon.png" width="30%" height="auto" />
-</p>
+Have you ever been tired of some Leetcode problem pages not having filter
+and having to scroll to find the problems? Well say no more.
 
 ## Overview
 
-Fileeter provides filter problems by different difficulty levels and tag on some
+Fileeter helps filter problems by different difficulty levels and tag on some
 Leetcode problem pages that do not have filter.
 
 ## Installation
