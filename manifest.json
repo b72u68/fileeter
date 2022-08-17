@@ -8,10 +8,10 @@
   },
   "permissions": ["storage", "activeTab", "tabs"],
   "content_scripts": [
-      {
-          "matches": ["*://leetcode.com/company/*", "*://leetcode.com/tag/*"],
-          "js": ["js/content.js"]
-      }
+    {
+      "matches": ["*://leetcode.com/company/*", "*://leetcode.com/tag/*"],
+      "js": ["js/content.js"]
+    }
   ],
   "action": {
     "default_popup": "popup.html",
