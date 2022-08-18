@@ -88,7 +88,7 @@ let tagsInput = document.getElementById("tagsInput");
 
 window.onload = function () {
   chrome.storage.sync.get("theme", ({ theme }) => {
-    setToTheme(theme);
+    setTheme(theme);
   });
 
   chrome.storage.sync.get("filter", ({ filter }) => {
@@ -107,13 +107,13 @@ window.onload = function () {
   tagsInput.innerHTML = tagOptionsHTML;
 };
 
-themeBtn.addEventListener("click", async () => {
+themeBtn.addEventListener("click", () => {
   if (themeBtn.className === "light") {
     chrome.storage.sync.set({ theme: "light" });
   } else {
     chrome.storage.sync.set({ theme: "dark" });
   }
-  setToTheme();
+  toggleTheme();
 });
 
 applyBtn.addEventListener("click", async () => {
@@ -124,9 +124,7 @@ applyBtn.addEventListener("click", async () => {
     hard: hardOption.checked,
     tags: tagsInput.value,
   };
-
   setChromeFilterData(filterData);
-
   chrome.tabs.sendMessage(tab.id, { action: "applyFilter" });
 });
 
@@ -155,13 +153,14 @@ hardOverlay.addEventListener("click", () => {
 
 function setChromeFilterData(filterData) {
   const { easy, medium, hard, tags } = filterData;
+  console.log(easy, medium, hard, tags);
   chrome.storage.sync.get("filter", ({ filter }) => {
     chrome.storage.sync.set({
       filter: {
-        easy: easy !== null ? easy : filter.easy,
-        medium: medium !== null ? medium : filter.medium,
-        hard: hard !== null ? hard : filter.hard,
-        tags: tags !== null ? tags : filter.tags,
+        easy: easy == null ? filter.easy : easy,
+        medium: medium == null ? filter.medium : medium,
+        hard: hard == null ? filter.hard : hard,
+        tags: tags == null ? filter.tags : tags,
       },
     });
   });
@@ -181,22 +180,23 @@ function clearCheckboxAndStorage() {
   tagsInput.value = "";
 }
 
-function setToTheme() {
+function setTheme(theme) {
+  switch (theme) {
+    case "dark":
+      themeBtn.className = "light";
+      themeBtn.innerText = "Light";
+      document.body.className = "dark";
+      break;
+    default:
+      themeBtn.className = "dark";
+      themeBtn.innerText = "Dark";
+      document.body.className = "light";
+      break;
+  }
+}
+
+function toggleTheme() {
   chrome.storage.sync.get("theme", ({ theme }) => {
-    switch (theme) {
-      case "light":
-        themeBtn.className = "dark";
-        themeBtn.innerText = "Dark";
-        document.body.className = "light";
-        break;
-      case "dark":
-        themeBtn.className = "light";
-        themeBtn.innerText = "Light";
-        document.body.className = "dark";
-        break;
-      default:
-        setTheme("light");
-        break;
-    }
+    setTheme(theme);
   });
 }
