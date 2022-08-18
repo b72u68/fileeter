@@ -36,6 +36,7 @@ h2 {
 }
 
 #themeBtn {
+  border: 0;
   width: auto;
   height: auto;
 }
@@ -65,6 +66,10 @@ form {
   color: white;
   font-weight: bold;
   position: relative;
+}
+
+input[type="checkbox"] {
+  accent-color: #4688f1;
 }
 
 .easy {

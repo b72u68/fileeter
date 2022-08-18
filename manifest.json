@@ -6,7 +6,7 @@
   "background": {
     "service_worker": "js/background.js"
   },
-  "permissions": ["storage", "activeTab", "tabs"],
+  "permissions": ["storage", "activeTab", "tabs", "declarativeContent"],
   "content_scripts": [
     {
       "matches": ["*://leetcode.com/company/*", "*://leetcode.com/tag/*"],

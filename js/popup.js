@@ -153,7 +153,6 @@ hardOverlay.addEventListener("click", () => {
 
 function setChromeFilterData(filterData) {
   const { easy, medium, hard, tags } = filterData;
-  console.log(easy, medium, hard, tags);
   chrome.storage.sync.get("filter", ({ filter }) => {
     chrome.storage.sync.set({
       filter: {
