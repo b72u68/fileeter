@@ -19,24 +19,22 @@ function applyFilter() {
     const { difficulties, tags } = filter;
     for (let problemElement of problemElements) {
       const problemElementText = problemElement.innerText;
+      let isProblemMatchCriteria = false;
       for (let difficulty of difficulties) {
         if (problemElementText.indexOf(difficulty) !== -1) {
           if (tags.length === 0) {
-            problemElement.hidden = false;
+            isProblemMatchCriteria = true;
             break;
           }
-          let includeAtLeastOneTag = false;
           for (let tag of tags) {
             if (problemElementText.indexOf(tag) !== -1) {
-              includeAtLeastOneTag = true;
+              isProblemMatchCriteria = true;
               break;
             }
           }
-          problemElement.hidden = !includeAtLeastOneTag;
-        } else {
-          problemElement.hidden = true;
         }
       }
+      problemElement.hidden = !isProblemMatchCriteria;
     }
   });
 }

@@ -69,3 +69,5 @@ Any suggestions and help would be appreciate.
 - [ ] Hide/show completed problems.
 
 - [ ] Find out the right way to enable/disable extension in selected url.
+
+- [ ] Refactor because popup.js looks disgusting

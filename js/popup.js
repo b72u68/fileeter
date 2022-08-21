@@ -89,80 +89,20 @@ const hardOverlay = document.getElementById("hardOverlay");
 const tagsInput = document.getElementById("tagsInput");
 const selectedTags = document.getElementById("selectedTags");
 
-// Initial setup for popup
-window.onload = function () {
-  chrome.storage.sync.get("theme", ({ theme }) => {
-    setTheme(theme);
-  });
-
-  chrome.storage.sync.get("filter", ({ filter }) => {
-    const { easy, medium, hard, tags } = filter;
-    easyOption.checked = easy;
-    mediumOption.checked = medium;
-    hardOption.checked = hard;
-    tagsInput.value = "";
-    populateSelectedTags(tags);
-  });
-
-  let tagOptionsHTML = '<option value=""></option>';
-  for (let i = 0; i < tagList.length; i++) {
-    tagOptionsHTML += `<option value="${tagList[i]}">${tagList[i]}</option>`;
-  }
-  tagsInput.innerHTML = tagOptionsHTML;
-};
-
-// Listeners
-themeBtn.addEventListener("click", () => {
-  if (themeBtn.className === "light") {
-    chrome.storage.sync.set({ theme: "light" });
-  } else {
-    chrome.storage.sync.set({ theme: "dark" });
-  }
-  toggleTheme();
-});
-
-applyBtn.addEventListener("click", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  finalizeFilter();
-  chrome.tabs.sendMessage(tab.id, { action: "applyFilter" });
-});
-
-clearBtn.addEventListener("click", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  clearFilter();
-  chrome.tabs.sendMessage(tab.id, { action: "clearFilter" });
-});
-
-easyOverlay.addEventListener("click", () => {
-  easyOption.checked = !easyOption.checked;
-  setChromeFilterData({ easy: easyOption.checked });
-});
-
-mediumOverlay.addEventListener("click", () => {
-  mediumOption.checked = !mediumOption.checked;
-  setChromeFilterData({ medium: mediumOption.checked });
-});
-
-hardOverlay.addEventListener("click", () => {
-  hardOption.checked = !hardOption.checked;
-  setChromeFilterData({ hard: hardOption.checked });
-});
-
-tagsInput.addEventListener("change", () => {
-  chrome.storage.sync.get("filter", ({ filter }) => {
-    const { easy, medium, hard, tags } = filter;
-    if (tagsInput.value && tags.indexOf(tagsInput.value) === -1) {
-      tags.push(tagsInput.value);
-    }
-    chrome.storage.sync.set({ filter: { easy, medium, hard, tags } });
-    tagsInput.value = "";
-    populateSelectedTags(tags);
-  });
-});
-
 // Supporting functions
-function removeSelectedTagElement(event) {
-  console.log(event, event.target, event.target.value);
+function initializeTagOptions() {
+  const firstTagOptionElement = document.createElement("option");
+  firstTagOptionElement.value = "";
+  tagsInput.appendChild(firstTagOptionElement);
+  for (let i = 0; i < tagList.length; i++) {
+    const tagOptionElement = document.createElement("option");
+    tagOptionElement.value = tagList[i];
+    tagOptionElement.innerText = tagList[i];
+    tagsInput.appendChild(tagOptionElement);
+  }
+}
+
+function onClickSelectedTagElement(event) {
   chrome.storage.sync.get("filter", ({ filter }) => {
     const { easy, medium, hard, tags } = filter;
     const newTags = tags.filter((elem) => elem !== event.target.value);
@@ -184,7 +124,7 @@ function getSelectedTagHTMLElement(tag) {
   selectedTagElement.id = tag;
   selectedTagElement.value = tag;
   selectedTagElement.innerText = tag;
-  selectedTagElement.addEventListener("click", removeSelectedTagElement);
+  selectedTagElement.addEventListener("click", onClickSelectedTagElement);
   return selectedTagElement;
 }
 
@@ -208,6 +148,7 @@ function finalizeFilter() {
     if (hard) {
       difficulties.push("Hard");
     }
+    console.log(difficulties, tags);
     chrome.storage.sync.set({
       filter: { easy, medium, hard, difficulties, tags },
     });
@@ -263,3 +204,70 @@ function toggleTheme() {
     setTheme(theme);
   });
 }
+
+// Initial setup for popup
+window.onload = function () {
+  chrome.storage.sync.get("theme", ({ theme }) => {
+    setTheme(theme);
+  });
+
+  chrome.storage.sync.get("filter", ({ filter }) => {
+    const { easy, medium, hard, tags } = filter;
+    easyOption.checked = easy;
+    mediumOption.checked = medium;
+    hardOption.checked = hard;
+    tagsInput.value = "";
+    populateSelectedTags(tags);
+  });
+
+  initializeTagOptions();
+};
+
+// Listeners
+themeBtn.addEventListener("click", () => {
+  if (themeBtn.className === "light") {
+    chrome.storage.sync.set({ theme: "light" });
+  } else {
+    chrome.storage.sync.set({ theme: "dark" });
+  }
+  toggleTheme();
+});
+
+applyBtn.addEventListener("click", async () => {
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  finalizeFilter();
+  chrome.tabs.sendMessage(tab.id, { action: "applyFilter" });
+});
+
+clearBtn.addEventListener("click", async () => {
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  clearFilter();
+  chrome.tabs.sendMessage(tab.id, { action: "clearFilter" });
+});
+
+easyOverlay.addEventListener("click", () => {
+  easyOption.checked = !easyOption.checked;
+  setChromeFilterData({ easy: easyOption.checked });
+});
+
+mediumOverlay.addEventListener("click", () => {
+  mediumOption.checked = !mediumOption.checked;
+  setChromeFilterData({ medium: mediumOption.checked });
+});
+
+hardOverlay.addEventListener("click", () => {
+  hardOption.checked = !hardOption.checked;
+  setChromeFilterData({ hard: hardOption.checked });
+});
+
+tagsInput.addEventListener("change", () => {
+  chrome.storage.sync.get("filter", ({ filter }) => {
+    const { easy, medium, hard, tags } = filter;
+    if (tagsInput.value && tags.indexOf(tagsInput.value) === -1) {
+      tags.push(tagsInput.value);
+    }
+    chrome.storage.sync.set({ filter: { easy, medium, hard, tags } });
+    tagsInput.value = "";
+    populateSelectedTags(tags);
+  });
+});
