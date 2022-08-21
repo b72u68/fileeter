@@ -67,3 +67,5 @@ Any suggestions and help would be appreciate.
 - [x] ~~Add filter by multiple tags and improving popup interface to suport this feature.~~
 
 - [ ] Hide/show completed problems.
+
+- [ ] Find out the right way to enable/disable extension in selected url.
