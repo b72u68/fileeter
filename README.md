@@ -64,7 +64,6 @@ Any suggestions and help would be appreciate.
 
 - [x] ~~Add filter by one tag feature.~~
 
-- [ ] Add filter by multiple tags and improving popup interface to suport this
-      feature.
+- [x] ~~Add filter by multiple tags and improving popup interface to suport this feature.~~
 
 - [ ] Hide/show completed problems.

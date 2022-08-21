@@ -103,3 +103,21 @@ input[type="checkbox"] {
   box-sizing: border-box;
   resize: vertical;
 }
+
+#selectedTags {
+  padding: 0px 5px;
+}
+
+.selectedTag {
+  padding: 2px 6px;
+  margin: 2px 2px;
+  width: max-content;
+  background-color: lightgrey;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 16px;
+}

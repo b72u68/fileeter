@@ -15,34 +15,24 @@ chrome.runtime.onMessage.addListener(function (request, sender, _) {
 
 function applyFilter() {
   const problemElements = document.querySelectorAll("tr");
-
   chrome.storage.sync.get("filter", ({ filter }) => {
-    const { easy, medium, hard, tags } = filter;
-
+    const { difficulties, tags } = filter;
     for (let problemElement of problemElements) {
-      let problemElementText = problemElement.innerText;
-
-      if (problemElementText.indexOf("Easy") !== -1) {
-        if (easy && problemElementText.indexOf(tags) !== -1) {
-          problemElement.hidden = false;
-        } else {
-          problemElement.hidden = true;
-        }
-      }
-
-      if (problemElementText.indexOf("Medium") !== -1) {
-        if (medium && problemElementText.indexOf(tags) !== -1) {
-          problemElement.hidden = false;
-        } else {
-          problemElement.hidden = true;
-        }
-      }
-
-      if (problemElementText.indexOf("Hard") !== -1) {
-        if (hard && problemElementText.indexOf(tags) !== -1) {
-          problemElement.hidden = false;
-        } else {
-          problemElement.hidden = true;
+      const problemElementText = problemElement.innerText;
+      for (let difficulty of difficulties) {
+        if (problemElementText.indexOf(difficulty) !== -1) {
+          if (tags.length === 0) {
+            problemElement.hidden = false;
+            break;
+          }
+          let includeAtLeastOneTag = false;
+          for (let tag of tags) {
+            if (problemElementText.indexOf(tag) !== -1) {
+              includeAtLeastOneTag = true;
+              break;
+            }
+          }
+          problemElement.hidden = !includeAtLeastOneTag;
         }
       }
     }

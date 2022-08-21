@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Fileeter</title>
     <link rel="stylesheet" href="css/popup.css" />
   </head>
   <body class="light">
@@ -28,10 +29,12 @@
       </div>
     </form>
     <h2 class="section">Tag</h2>
-    <p class="instruction">Choose a problem tag.</p>
-    <div id="tags"></div>
+    <p class="instruction">
+      Choose problem tag(s). Click on the selected tag to remove.
+    </p>
+    <div id="selectedTags"></div>
     <form>
-      <select id="tagsInput"></select>
+      <select id="tagsInput" aria-label="Tag"></select>
     </form>
     <input id="applyBtn" type="submit" value="Apply" />
     <input id="clearBtn" type="submit" value="Clear" />
