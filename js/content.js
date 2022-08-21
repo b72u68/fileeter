@@ -33,6 +33,8 @@ function applyFilter() {
             }
           }
           problemElement.hidden = !includeAtLeastOneTag;
+        } else {
+          problemElement.hidden = true;
         }
       }
     }
