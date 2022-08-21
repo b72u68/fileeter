@@ -1,3 +1,14 @@
+// Only show popup in tabs with selected url
+chrome.action.onClicked.addListener((tab) => {
+  const urlPattern = /^(https|http):\/\/leetcode.com\/(company|tag)\/.*/g;
+  if (tab.url && tab.url.match(urlPattern)) {
+    chrome.action.enable(tab.id);
+    chrome.action.setPopup({ popup: "popup.html", tabId: tab.id });
+  } else {
+    chrome.action.disable(tab.id);
+  }
+});
+
 // Current available tags
 const tagList = [
   "Array",
