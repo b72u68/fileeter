@@ -159,7 +159,6 @@ function finalizeFilter() {
     if (hard) {
       difficulties.push("Hard");
     }
-    console.log(difficulties, tags);
     chrome.storage.sync.set({
       filter: { easy, medium, hard, difficulties, tags },
     });

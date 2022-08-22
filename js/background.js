@@ -7,7 +7,6 @@ chrome.runtime.onInstalled.addListener(() => {
       easy: true,
       medium: true,
       hard: true,
-      difficulties: [],
       tags: [],
     },
   });
