@@ -26,7 +26,7 @@ git clone https://github.com/b72u68/fileeter
 In your chromium browser, type `chrome://extensions` if you're using Google Chrome
 (or `edge://extensions` if you're using Microsoft Edge like a psychopath) in
 your address/search bar (or choose "Manage extensions" option in your Extensions
-settings) and turn on "Developer mode" on the upper right corner of the page.
+settings) and turn on "Developer mode" in the upper right corner of the page.
 
 Next click on "Load unpacked" and choose the repository you have just cloned to
 your local machine.
@@ -41,7 +41,7 @@ And done, you have installed this extension to your browser. Enjoy!
 ### Theme
 
 There are two available themes: Light (default) and Dark (to protect your weak
-progammer's eyes). You can toggle between them by using the button on the top right.
+programmer's eyes). You can toggle between them by using the button on the top right.
 
 ### Filter by Difficulties
 
@@ -59,22 +59,22 @@ remove it from the filtering list.
 If you have new idea to improve this extension, you can either create new a "Issues"
 ticket or fork and clone this repository to develop it in your environment.
 
-Any suggestions and help would be appreciate.
+Any suggestions and help would be appreciated.
 
 ## TODO
-
-- [x] ~~Might need to add restriction that the extension can only be active on
-      [https://leetcode.com/company/\*](https://leetcode/company) or it will go insane
-      on other websites.~~
-
-- [x] ~~Add filter by one tag feature.~~
-
-- [x] ~~Add filter by multiple tags and improving popup interface to suport this feature.~~
-
-- [x] Find out the right way to enable/disable extension in selected url.
 
 - [ ] Hide/show completed problems.
 
 - [ ] Refactor because popup.js looks disgusting
 
 - [ ] Rewrite the whole thing in TypeScript and React instead of JavaScript?
+
+- [x] ~~Might need to add restriction that the extension can only be active on
+      [https://leetcode.com/company/\*](https://leetcode/company), or it will go insane
+      on other websites.~~
+
+- [x] ~~Add filter by one tag feature.~~
+
+- [x] ~~Add filter by multiple tags and improving popup interface to support this feature.~~
+
+- [x] Find out the right way to enable/disable extension in selected url.
